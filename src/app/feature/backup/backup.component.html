@@ -1,0 +1,97 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div > 
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-8">
+                    <div class="card shadow-lg">
+                      <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">{{ 'backup Config' }}</h3>
+                      </div>
+                      <div class="card-body">
+                        <form [formGroup]="backupForm">
+                          <div class="mb-3">
+                            <label for="lienBackupDB" class="form-label" >Path Backup Database</label>
+                            <!--<input type="text" class="form-control" placeholder="C:\Users\FolderName\Desktop" formControlName="lienBackupDB" id="lienBackupDB">-->
+                            <input type="file" webkitdirectory (change)="onFolderSelected($event)">
+                            <button type="submit">Backup</button>
+                          </div>
+                          <div class="mb-3">
+                            <label for="lienDbDump" class="form-label">Path Script Database Dump</label>
+                            <input type="text" class="form-control" placeholder="C:\Program Files\MySQL\MySQL Server 5.5\bin" formControlName="lienDbDump" id="lienDbDump">
+                          </div>
+                          <div class="mb-3">
+                            <label for="frequency" class="form-label">Backup Frequency</label>
+                            <select class="form-select" formControlName="frequency" id="frequency">
+                              <option value="">Select Frequency</option>
+                              <option *ngFor="let option of frequencyOptions" [value]="option.value">{{option.label}}</option>
+                            </select>
+                          </div>
+                          <div class="mb-3">
+                            <label for="time" class="form-label">Select Backup Time</label>
+                            <input type="time" class="form-control" formControlName="time" id="time" required>
+                          </div>
+                          <div *ngIf="frequency?.value === 'weekly'" class="mb-3">
+                            <label for="dayOfWeek" class="form-label">Select Day of Week</label>
+                            <select class="form-select" formControlName="dayOfWeek" id="dayOfWeek">
+                              <option value="">Select Day of Week</option>
+                              <option *ngFor="let option of dayOfWeekOptions" [value]="option.value">{{option.label}}</option>
+                            </select>
+                          </div>
+                          <div *ngIf="frequency?.value === 'monthly'" class="mb-3">
+                            <label for="dayOfMonth" class="form-label">Select Day of Month</label>
+                            <input type="number" class="form-control" formControlName="dayOfMonth" id="dayOfMonth" min="1" max="31">
+                          </div>
+                          <div *ngIf="frequency?.value === 'annually'">
+                            <div class="mb-3">
+                              <label for="month" class="form-label">Select Month</label>
+                              <input type="number" class="form-control" formControlName="month" id="month" min="1" max="12">
+                            </div>
+                            <div class="mb-3">
+                              <label for="week" class="form-label">Select Week</label>
+                              <input type="number" class="form-control" formControlName="week" id="week" min="1" max="5">
+                            </div>
+                            <div class="mb-3">
+                              <label for="dayOfWeekInMonth" class="form-label">Select Day of Week in Month</label>
+                              <select class="form-select" formControlName="dayOfWeekInMonth" id="dayOfWeekInMonth">
+                                <option value="">Select Day of Week in Month</option>
+                                <option *ngFor="let option of dayOfWeekOptions" [value]="option.value">{{option.label}}</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="databases" class="form-label">Databases to Backup</label>
+                            <div formArrayName="databases">
+                              <div *ngFor="let database of databasesFormArray.controls; let i = index">
+                                <div class="input-group mb-2">
+                                  <input type="text" class="form-control" [formControlName]="i" placeholder="Enter database name">
+                                  <button class="btn btn-danger" type="button" (click)="removeDatabase(i)">Remove</button>
+                                </div>
+                              </div>
+                            </div>
+                            <button class="btn btn-secondary mt-2" type="button" (click)="addDatabase()">Add Database</button>
+                          </div>
+                          <div class="mb-3">
+                            <label for="retentionDays" class="form-label">Retention Period (days)</label>
+                            <input type="number" class="form-control" formControlName="retentionDays" id="retentionDays" min="1">
+                            <div *ngIf="backupForm.get('retentionDays')?.invalid && (backupForm.get('retentionDays')?.dirty || backupForm.get('retentionDays')?.touched)" class="text-danger">
+                              <small *ngIf="backupForm.get('retentionDays')?.errors?.['required']">Retention period is required.</small>
+                              <small *ngIf="backupForm.get('retentionDays')?.errors?.['min']">Retention period must be at least 15 day.</small>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary" [disabled]="!backupForm.valid" (click)="saveOrUpdate()">
+                              <i class="bi bi-check"></i> Valider
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>

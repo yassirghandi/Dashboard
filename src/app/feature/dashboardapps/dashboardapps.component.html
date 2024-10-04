@@ -1,0 +1,154 @@
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+
+<app-header></app-header>
+<div class="combo">
+  <app-combo-box></app-combo-box>
+</div>
+  <div class="dashboard-container">
+    
+    <div class="dashboard-left">
+      <!-- Header with 3 smaller cards -->
+      <div class="header-cards">
+        <div class="card-container">
+          <!-- Orders Card -->
+          <div class="card-diamond">
+              <div class="card-header">
+                  <i class="icon-blue fa fa-shopping-cart"></i>
+                  <h3>Orders</h3>
+              </div>
+              <div class="card-body">
+                  <div>
+                      <p>{{ orders.pending | number }}</p>
+                      <span>Pending</span>
+                  </div>
+                  <div class="card-divider"></div>
+                  <div>
+                      <p>{{ orders.completed | number }}</p>
+                      <span>Completed</span>
+                  </div>
+              </div>
+          </div>
+      
+          <!-- Revenue Card -->
+          <div class="card-diamond-revenue">
+              <div class="card-header">
+                  <i class="icon-purple fa fa-dollar-sign"></i>
+                  <h3>Revenue</h3>
+              </div>
+              <div class="card-body">
+                  <div>
+                      <p>${{ revenue.expenses | number}}</p>
+                      <span>Expenses</span>
+                  </div>
+                  <div class="card-divider"></div>
+                  <div>
+                      <p>${{ revenue.income | number }}</p>
+                      <span>Income</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Fournisseur card -->
+      <div class="fournisseur-card">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fa fa-truck"></i> <!-- Fournisseur icon -->
+          </div>
+          <div class="card-details">
+            <h3>Fournisseurs</h3>
+            <p>{{ fournisseurs }}</p> <!-- Example number of fournisseurs -->
+          </div>
+        </div>
+      </div>
+      <!-- Chart placeholder -->
+      <div class="chart-container">
+        <canvas id="stockChart"></canvas> <!-- Canvas for chart.js -->
+      </div>
+    </div>
+
+
+    <div class="dashboard-right">
+      <!-- Header with 3 smaller cards -->
+        <div class="header-cards">
+          <div class="card-container">
+            <!-- Orders Card -->
+            <div class="card-diamond-customer">
+                <div class="card-header">
+                    <i class="icon-green fa fa-users"></i>
+                    <h3>Customers</h3>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <p>{{ customer.active | number}}</p>
+                        <span>Active</span>
+                    </div>
+                    <div class="card-divider"></div>
+                    <div>
+                        <p>{{ customer.registred | number}}</p>
+                        <span>Registred</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- commentaire Card -->
+            <div class="card-diamond-commentaire">
+                <div class="card-header">
+                    <i class="icon-blue-ciel fa fa-comments"></i>
+                    <h3>Comments</h3>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <p>{{ comments.new | number }}</p>
+                        <span>New</span>
+                    </div>
+                    <div class="card-divider"></div>
+                    <div>
+                        <p>{{ comments.responded | number }}</p>
+                        <span>Responded</span>
+                    </div>
+                </div>
+          </div>
+        </div>
+      <!-- Fournisseur card -->
+      <div class="fournisseur-card">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fa fa-box"></i> <!-- Fournisseur icon -->
+          </div>
+          <div class="card-details">
+            <h3>Suppliers</h3>
+            <p>{{suppliers}}</p> <!-- Example number of suppliers -->
+          </div>
+        </div>
+      </div>
+      <div class="best-selling-card full-width">
+        <div class="card-best-selling">
+            <div class="card-header">
+                <h3>Best Selling Products</h3>
+            </div>
+            <div class="center-page">
+              <ul class="product-list">
+                <li class="product-item" *ngFor="let product of products">
+                  <div class="product-info">
+                    <strong>{{ product.name }}</strong><br>
+                    {{ product.category }}
+                  </div>
+                  <div class="product-rate-container">
+                    <div class="rate-bar">
+                      <div class="fill" [ngStyle]="{'width': product.rate + '%', 'background-color': product.color}"></div>
+                    </div>
+                    <span class="product-rate" [style.color]="product.color">{{ product.rate }}%</span>
+                  </div>
+                </li>
+              </ul>
+            </div>            
+        </div>
+      </div>  
+    </div>
+  </div>
+
+ 

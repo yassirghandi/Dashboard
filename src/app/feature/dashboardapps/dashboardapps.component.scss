@@ -1,0 +1,326 @@
+/* Container Styling */
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Added spacing between dashboard sides */
+  margin:0px 20px;
+}
+
+/* Left and Right Dashboard Sections */
+.dashboard-left, .dashboard-right {
+  width: 50%; /* Balanced width for both sides */
+  padding:10px;
+  display: flex;
+  flex-direction: column;
+  //gap: 20px;
+}
+
+.combo{
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+/* Header Cards */
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 30px;
+  //background-color: #f8f9fa;
+}
+
+/* Common Card Styling */
+.card-diamond{
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  position: relative;
+}
+
+.card-diamond-customer{
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  position: relative;
+}
+
+.card-diamond-commentaire{
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  position: relative;
+}
+
+.card-diamond-revenue{
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  position: relative;
+}
+
+/* Card Border Styling */
+.card-diamond:before {
+  content: "";
+  width: 6px;
+  height: 100%;
+  background-color: #4CAEF5; /* Blue border color */
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.card-diamond-commentaire:before{
+  content: "";
+  width: 6px;
+  height: 100%;
+  background-color: rgb(77, 208, 225); /* Blue border color */
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.card-diamond-customer:before{
+  content: "";
+  width: 6px;
+  height: 100%;
+  background-color: rgb(77, 182, 172); /* Blue border color */
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.card-diamond-revenue:before {
+  content: "";
+  width: 6px;
+  height: 100%;
+  background-color: #6A5ACD; /* Blue border color */
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px; /* Reduced padding */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s;
+  width: 230px; /* Smaller width for cards */
+}
+
+.card:hover {
+  transform: translateY(-3px); /* Subtle hover effect */
+}
+
+/* Icon and Title Section */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header i {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+/* Different Colors for Icons */
+.card-header .icon-blue {
+  background-color: #4CAEF5; /* Blue for Orders */
+}
+
+.card-header .icon-purple {
+  background-color: #6A5ACD; /* Purple for Revenue */
+}
+
+.icon-green{
+  background-color: rgb(77, 182, 172);
+}
+
+.icon-blue-ciel{
+  background-color: rgb(77, 208, 225);
+}
+
+/* Card Body (Numbers and Labels) */
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-body div {
+  text-align: center;
+}
+
+.card-body div p {
+  margin: 5px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-body div span {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Divider Line */
+.card-divider {
+  border-left: 1px solid #ccc;
+  height: 50px;
+}
+
+/* Hover Effects */
+.card-diamond:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
+}
+
+.card-diamond-revenue:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
+}
+
+.card-diamond-commentaire:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
+}
+
+.card-diamond-customer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* More prominent shadow on hover */
+}
+
+
+
+.card-icon {
+  font-size: 25px; /* Adjusted icon size */
+  color: #007bff;
+  margin-bottom: 8px;
+}
+
+.fournisseur-card .card,
+.additional-card .card {
+    width: 100%; /* Full width for these cards */
+}
+
+
+.chart-container {
+  width: 100%;
+  height: 345px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+ /* Make the Best Selling Products card take full width */
+.full-width {
+    width: 100%;
+}
+
+.card-best-selling {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%; /* Full width on the right side */
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Add a subtle border */
+  }
+
+
+
+.best-selling-card .card-header h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-info {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.product-rate-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rate-bar {
+    width: 80px;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    position: relative;
+}
+
+.fill {
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 4px;
+}
+
+.product-rate {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+

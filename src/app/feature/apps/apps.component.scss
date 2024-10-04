@@ -6,15 +6,15 @@
   .app-icon {
     width: 100px;
     height: 100px;
-    background-color: #f8f9fa; /* Light background color */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    margin: 0 auto; /* Center the icon */
+    background-color: #f8f9fa; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin: 0 auto; 
   }
   
   .app-icon img {
-    max-width: 70%; /* Adjust icon size */
-    max-height: 70%;
+    
+    object-fit:fill;
   }
   
   .app-label {
@@ -49,4 +49,18 @@ html, body {
     width: 100%;
   }
   
+  .app-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
+  .app-icon i {
+    color: palegoldenrod;
+    transition: color 0.3s ease;
+  }
+  
+  .app-link:hover .app-icon i {
+    color: beige;
+  }

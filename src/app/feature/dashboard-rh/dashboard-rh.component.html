@@ -1,0 +1,180 @@
+
+
+<app-header></app-header>
+<div class="combo">
+  <app-combo-box></app-combo-box>
+</div>
+  <div class="dashboard-container">
+    
+    <div class="dashboard-left">
+      <!-- Header with 3 smaller cards -->
+      <div class="header-cards">
+        <div class="card-container">
+          <!-- Orders Card -->
+          <div class="card-diamond">
+              <div class="card-header">
+                  <i class="icon-blue fa fa-shopping-cart"></i>
+                  <h3>Orders</h3>
+              </div>
+              <div class="card-body">
+                  <div>
+                      <p>{{ dashboardRhdata?.orders?.pending | number }}</p>
+                      <span>Pending</span>
+                  </div>
+                  <div class="card-divider"></div>
+                  <div>
+                      <p>{{ dashboardRhdata?.orders?.completed | number }}</p>
+                      <span>Completed</span>
+                  </div>
+              </div>
+          </div>
+      
+          <!-- Revenue Card -->
+          <div class="card-diamond-revenue">
+              <div class="card-header">
+                  <i class="icon-purple fa fa-dollar-sign"></i>
+                  <h3>Revenue</h3>
+              </div>
+              <div class="card-body">
+                  <div>
+                      <p>${{ dashboardRhdata?.revenue?.expenses | number}}</p>
+                      <span>Expenses</span>
+                  </div>
+                  <div class="card-divider"></div>
+                  <div>
+                      <p>${{ dashboardRhdata?.revenue?.income | number }}</p>
+                      <span>Income</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Fournisseur card -->
+      <div class="fournisseur-card">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fa fa-truck"></i> <!-- Fournisseur icon -->
+          </div>
+          <div class="card-details">
+            <h3>Fournisseurs</h3>
+            <p>{{ dashboardRhdata?.fournisseurs }}</p> <!-- Example number of fournisseurs -->
+          </div>
+        </div>
+      </div>
+      <!-- Chart placeholder -->
+      <div class="chart-container">
+        <canvas id="stockChart"></canvas> <!-- Canvas for chart.js -->
+      </div>
+    </div>
+
+
+    <div class="dashboard-right">
+      <!-- Header with 3 smaller cards -->
+        <div class="header-cards">
+          <div class="card-container">
+            <!-- Orders Card -->
+            <div class="card-diamond-customer">
+                <div class="card-header">
+                    <i class="icon-green fa fa-users"></i>
+                    <h3>Customers</h3>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <p>{{ dashboardRhdata?.customer?.active | number}}</p>
+                        <span>Active</span>
+                    </div>
+                    <div class="card-divider"></div>
+                    <div>
+                        <p>{{ dashboardRhdata?.customer?.registred | number}}</p>
+                        <span>Registred</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- commentaire Card -->
+            <div class="card-diamond-commentaire">
+                <div class="card-header">
+                    <i class="icon-blue-ciel fa fa-comments"></i>
+                    <h3>Comments</h3>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <p>{{ dashboardRhdata?.comments?.new | number }}</p>
+                        <span>New</span>
+                    </div>
+                    <div class="card-divider"></div>
+                    <div>
+                        <p>{{ dashboardRhdata?.comments?.responded | number }}</p>
+                        <span>Responded</span>
+                    </div>
+                </div>
+          </div>
+        </div>
+      <!-- Fournisseur card -->
+      <div class="fournisseur-card">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fa fa-box"></i> <!-- Fournisseur icon -->
+          </div>
+          <div class="card-details">
+            <h3>Suppliers</h3>
+            <p>{{dashboardRhdata?.suppliers}}</p> <!-- Example number of suppliers -->
+          </div>
+        </div>
+      </div>
+      <div class="best-selling-card full-width">
+          <div class="card-extended" >
+            <div class="card-icon" style="background-color: #F1F8E9 ; color: #8BC34A;">
+                <i class="fa fa-user-plus"></i> <!-- Replace with your desired icon -->
+            </div>
+            <div class="card-data">
+              <h2>{{ cards[0].value }}</h2>
+              <p>{{ cards[0].title }}</p>
+            </div>
+          </div>
+          <div class="card-extended" >
+            <div class="card-icon" style="background-color: #ffeaa7; color: #ff6348;">
+                <i class="fa fa-bell"></i> <!-- Replace with your desired icon -->
+            </div>
+            <div class="card-data">
+              <h2>{{ cards[1].value }}</h2>
+              <p>{{ cards[1].title }}</p>
+            </div>
+          </div>
+          
+          <div class="card-extended" >
+            <div class="card-icon" style="background-color: #d1c4e9; color: #6a1b9a;">
+                <i class="fa fa-shopping-cart"></i> 
+            </div>
+            <div class="card-data">
+              <h2>{{ cards[2].value }}</h2>
+              <p>{{ cards[2].title }}</p>
+            </div>
+          </div> 
+          
+          <div class="card-extended" >
+            <div class="card-icon" style="background-color: #F8BBD0 ; color: #AB47BC;">
+                <i  class="fa fa-exclamation-triangle"></i> <!-- Replace with your desired icon -->
+            </div>
+            <div class="card-data">
+              <h2>{{ cards[4].value }}</h2>
+              <p>{{ cards[4].title }}</p>
+            </div>
+          </div>  
+
+          <div class="card-extended" >
+            <div class="card-icon" style="background-color: #F3E5F5 ; color: #7E57C2;" >
+                <i class="fa fa-times-circle"></i> <!-- Replace with your desired icon -->
+            </div>
+            <div class="card-data">
+              <h2>{{ cards[5].value }}</h2>
+              <p>{{ cards[5].title }}</p>
+            </div>
+          </div>  
+      </div>  
+    </div>
+  </div>
+
+
+   

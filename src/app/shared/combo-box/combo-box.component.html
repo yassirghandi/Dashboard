@@ -1,0 +1,3 @@
+<select class="dashboard-combo" [(ngModel)]="selectedApp" (change)="navigateToDashboard()">
+    <option *ngFor="let app of apps" [value]="app.route">{{ app.name }}</option>
+  </select>
